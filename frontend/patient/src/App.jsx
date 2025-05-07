@@ -1,5 +1,5 @@
-import React from 'react'
-import { Routes, Route } from "react-router-dom";
+import React, { useState } from 'react'
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./pages/Home"
 import Appointment from "./pages/Appointment"
 import Doctors from "./pages/Doctors"
@@ -9,22 +9,41 @@ import Profile from "./pages/Profile"
 import MyAppointment from "./pages/MyAppointment"
 import Signup from "./pages/Signup"
 import Login from "./pages/Login"
+import Headers from './components/Headers';
+import PrivateRoute from './components/PrivateRoute';
 
 
 const App = () => {
+  const [token, setToken] = useState(true)
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/apoinment" element={<Appointment />} />
-      <Route path="/doctors" element={<Doctors />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/my-appointment" element={<MyAppointment />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/login" element={<Login />} />
-    </Routes>
+    <div className="container w-[90%] mx-auto py-4 sm:px-8 sm:w-full relative text-[#1F2937]">
+      <Headers />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/apoinment" element={<Appointment />} />
+        <Route path="/all-doctors" element={<Doctors />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/profile" element={
+          <PrivateRoute
+            token={token}
+            route="/login"
+          >
+            <Profile />
+          </PrivateRoute>
+        } />
+        <Route path="/my-appointment" element={
+          <PrivateRoute
+            token={token}
+            route="/login"
+          >
+            <MyAppointment />
+          </PrivateRoute>
+        } />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </div>
   )
 }
-
 export default App
