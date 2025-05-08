@@ -23,7 +23,7 @@ const App = () => {
         <Route path="/apoinment" element={<Appointment />} />
         <Route path="/all-doctors" element={<Doctors />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        {/* <Route path="/contact" element={<Contact />} /> */}
         <Route path="/profile" element={
           <PrivateRoute
             token={token}
