@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { assets } from '../assets/assets'
 import { NavLink } from 'react-router-dom'
 
-const Headers = () => {
+const Header = () => {
     const [token, setToken] = useState(true);
     const [menuToggle, setMenuToggle] = useState(false);
 
@@ -13,7 +13,7 @@ const Headers = () => {
 
     return (
         <header className='w-full fixed top-0 left-0 border-b border-[#ADADAD] bg-white backgrdrop-blur-md z-50'>
-            <div className="container w-[90%] mx-auto py-4 md:px-6 sm:w-full">
+            <div className="container w-[90%] mx-auto py-4 sm:px-4">
                 {/* big screen navbar */}
                 <div className='flex justify-between items-center gap-2'>
                     <div className='logo-box'>
@@ -133,4 +133,4 @@ const Headers = () => {
     )
 }
 
-export default Headers
+export default Header

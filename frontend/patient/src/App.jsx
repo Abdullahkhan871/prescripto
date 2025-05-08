@@ -9,15 +9,15 @@ import Profile from "./pages/Profile"
 import MyAppointment from "./pages/MyAppointment"
 import Signup from "./pages/Signup"
 import Login from "./pages/Login"
-import Headers from './components/Headers';
+import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
 
 
 const App = () => {
   const [token, setToken] = useState(true)
   return (
-    <div className="container w-[90%] mx-auto py-4 sm:px-8 sm:w-full relative text-[#1F2937]">
-      <Headers />
+    <div className="container w-[90%] mx-auto sm:px-4 relative text-[#1F2937]">
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/apoinment" element={<Appointment />} />
